@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des formations</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        /* Appliquer l'image de fond à l'ensemble de la page */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('Images/backdrop.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #fff; /* Couleur du texte */
+        }
+
+        /* Ajouter un arrière-plan semi-transparent pour améliorer la lisibilité du texte */
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Arrière-plan semi-transparent */
+            border-radius: 10px; /* Optionnel : pour arrondir les coins */
+            margin: 20px;
+            overflow-x: auto; /* Pour gérer le débordement horizontal du tableau */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Supprimer l'espace entre les bordures des cellules */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd; /* Ajouter une bordure grise claire aux cellules */
+        }
+
+        th {
+            background-color: #f8c451; /* Couleur de fond des en-têtes */
+            color: #fff;
+        }
+
+        tr {
+            background-color: rgb(0, 0, 0); /* Fond uniforme pour toutes les lignes */
+        }
+
+        /* Style des liens */
+        a {
+            color: #f8c451; /* Couleur des liens */
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        a:hover {
+            color: #fff; /* Couleur du lien au survol */
+        }
+
+        /* Boutons stylisés */
+        .button {
+            background-color: #f8c451; /* Couleur de fond du bouton */
+            color: #fff; /* Couleur du texte */
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ffb84d; /* Effet au survol */
+            transform: scale(1.05); /* Agrandissement au survol */
+        }
+
+        /* Espacement pour les liens de déconnexion et autres */
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content">
+    <h1>Vous êtes dans la liste de vos formations validées ou refusées :</h1>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if ensFormations is not empty %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nom de la formation :</th>
+                <th>Statut :</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inscription in ensFormations %}
+                <tr>
+                    <td>{{ inscription.laFormation.leproduit.libelle }}</td>
+                    <td>{{ inscription.statut }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>Aucune formation validée ou refusée.</p>
+    {% endif %}
+
+    <div class="links">
+        <a href="{{ path('app_aff_formationemp') }}">
+            <button class="button">Retour</button>
+        </a>
+    </div>
+</div>
+
+
+</body>
+</html>

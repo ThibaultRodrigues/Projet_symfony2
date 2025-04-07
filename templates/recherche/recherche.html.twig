@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats :{% endblock %}
+
+{% block body %}
+    <h1>Résultats :</h1>
+
+    {% if employe is empty %}
+        <p>Aucun employé trouvé.</p>
+    {% else %}
+        {% for employe in employe %}
+            <p>
+                <strong>ID :</strong> {{ employe.id }} <br>
+                <strong>Login :</strong> {{ employe.login }} <br>
+                <strong>Mot de passe :</strong> {{ employe.mdp }} <br>
+                <strong>Nom :</strong> {{ employe.nom }} <br>
+                <strong>Prénom :</strong> {{ employe.prenom }} <br>
+                <strong>Statut :</strong> {{ employe.statut }} <br>
+                <hr>
+            </p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

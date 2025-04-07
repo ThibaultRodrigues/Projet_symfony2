@@ -1,0 +1,28 @@
+{# templates/recherche/rechercheinscriptionx.html.twig #}
+
+{% block title %}Recherche d'Inscriptions{% endblock %}
+
+{% block body %}
+    <h1>Recherche d'Inscriptions</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.rechercher) }}
+    {{ form_end(form) }}
+
+    <hr>
+
+    {% if inscriptions is not empty %}
+        <h2>Résultats :</h2>
+        {% for inscription in inscriptions %}
+            <p>
+                <strong>ID :</strong> {{ inscription.id }} <br>
+                <strong>Date :</strong> {{ laFormation.date_debut }} <br>
+                <hr>
+            </p>
+        {% endfor %}
+    {% elseif form.isSubmitted() %}
+        <p>Aucune inscription trouvée.</p>
+    {% endif %}
+{% endblock %}

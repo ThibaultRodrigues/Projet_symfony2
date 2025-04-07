@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des formations</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        /* Appliquer l'image de fond à l'ensemble de la page */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('Images/backdrop.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #fff; /* Couleur du texte */
+        }
+
+        /* Ajouter un arrière-plan semi-transparent pour améliorer la lisibilité du texte */
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Arrière-plan semi-transparent */
+            border-radius: 10px; /* Optionnel : pour arrondir les coins */
+            margin: 20px;
+            overflow-x: auto; /* Pour gérer le débordement horizontal du tableau */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Supprimer l'espace entre les bordures des cellules */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd; /* Ajouter une bordure grise claire aux cellules */
+        }
+
+        th {
+            background-color: #f8c451; /* Couleur de fond des en-têtes */
+            color: #fff;
+        }
+
+        tr {
+            background-color: rgb(0, 0, 0); /* Fond uniforme pour toutes les lignes */
+        }
+
+        a {
+            color: #f8c451; /* Couleur des liens */
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        a:hover {
+            color: #fff; /* Couleur du lien au survol */
+        }
+
+        /* Boutons stylisés */
+        button {
+            background-color: #f8c451; /* Couleur de fond du bouton */
+            color: #fff; /* Couleur du texte */
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #ffb84d; /* Effet au survol */
+        }
+
+        /* Espacement pour les liens de déconnexion et autres */
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h1>Vous êtes dans la liste des formations :</h1>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <!-- Tableau des formations -->
+    <table>
+        <thead>
+            <tr>
+                <th>Date de Formation</th>
+                <th>Nombre d'Heures</th>
+                <th>Département</th>
+                <th>Sommaire</th>
+                <th>Objectif de Formation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formations in ensFormations %}
+                <tr>
+                    <td>{{ formations.dateDebut|date("m/d/Y") }}</td>
+                    <td>{{ formations.nbreHeures }}</td>
+                    <td>{{ formations.departement }}</td>
+                    <td>{{ formations.sommaire }}</td>
+                    <td>{{ formations.leProduit.libelle }}</td>
+                    <td>
+                        <a href="{{ path('app_formation_sup', {'id': formations.id}) }}">
+                            <button>Supprimer</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="links">
+        <a href="{{ path('app_ajout_formation') }}">
+            <button>Ajouter une formation</button>
+        </a>
+        <a href="{{ path('app_aff_validations') }}">
+            <button>Valider les formations</button>
+        </a>
+        <a href="{{ path('app_login') }}">
+            <button>Déconnexion</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

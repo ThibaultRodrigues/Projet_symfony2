@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats :{% endblock %}
+
+{% block body %}
+    <h1>Résultats :</h1>
+
+    {% if inscriptions is empty %}
+        <p>Aucun employé trouvé.</p>
+    {% else %}
+        {% for inscription in inscriptions %}
+            <p>
+                <strong>Nom :</strong> {{ inscription.lemploye.nom }} <br>
+                <strong>Prénom :</strong> {{ inscription.lemploye.prenom }} <br>
+                <strong>Le Produit :</strong> {{ inscription.laFormation.leProduit.libelle }} <br>
+            </p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
