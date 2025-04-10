@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 15 mars 2025 à 18:51
+-- Généré le : jeu. 10 avr. 2025 à 17:42
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -31,24 +31,25 @@ DROP TABLE IF EXISTS `employe`;
 CREATE TABLE IF NOT EXISTS `employe` (
   `id` int NOT NULL AUTO_INCREMENT,
   `login` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mdp` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mdp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nom` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prenom` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `statut` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `employe`
 --
 
 INSERT INTO `employe` (`id`, `login`, `mdp`, `nom`, `prenom`, `statut`) VALUES
-(1, 'Thibault', '123456', 'Rodrigues-seabra', 'Thibault', 1),
-(2, 'toto', 'toto', 'blabla', 'toto', 0),
-(3, 'tata', 'mdp77550', 'Castaing', 'tata', 0),
-(4, 'titi', 'mdp77550', 'Castaing', 'titi', 0),
-(5, 'toto', 'mdp77550', 'Castaing', 'toto', 0),
-(6, 'tutu', 'mdp77550', 'Castaing', 'tutu', 0);
+(1, 'Thibault', 'f3e74cf193834b8a85cbae7a2dcc5ce6', 'Rodrigues-seabra', 'Thibault', 1),
+(2, 'toto', 'f3e74cf193834b8a85cbae7a2dcc5ce6', 'blabla', 'toto', 0),
+(3, 'tata', 'f3e74cf193834b8a85cbae7a2dcc5ce6', 'Castaing', 'tata', 0),
+(4, 'titi', 'f3e74cf193834b8a85cbae7a2dcc5ce6', 'Castaing', 'titi', 0),
+(5, 'toto', 'f3e74cf193834b8a85cbae7a2dcc5ce6', 'Castaing', 'toto', 0),
+(6, 'tutu', 'f3e74cf193834b8a85cbae7a2dcc5ce6', 'Castaing', 'tutu', 0),
+(7, 'Jean', 'f3e74cf193834b8a85cbae7a2dcc5ce6', 'Demoter', 'Jean', 0);
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `formation` (
   `sommaire` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_404021BF2C340150` (`le_produit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `formation`
@@ -77,7 +78,6 @@ INSERT INTO `formation` (`id`, `date_debut`, `nbre_heures`, `departement`, `le_p
 (4, '2024-12-02', 50, '77550', 3, ''),
 (5, '2024-12-07', 75, '93000', 1, ''),
 (6, '2024-12-12', 50, '93000', 1, 'Utilisations de base puis stylisations de l\'écrit'),
-(7, '2024-12-18', 80, '99000', 2, '8888888'),
 (8, '2025-05-01', 99, '75000', 1, 'très dur');
 
 -- --------------------------------------------------------
@@ -95,19 +95,7 @@ CREATE TABLE IF NOT EXISTS `inscription` (
   PRIMARY KEY (`id`),
   KEY `IDX_5E90F6D6D3758FF7` (`lemploye_id`),
   KEY `IDX_5E90F6D6C6E58DBA` (`la_formation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `inscription`
---
-
-INSERT INTO `inscription` (`id`, `statut`, `lemploye_id`, `la_formation_id`) VALUES
-(1, 'valider', 2, 3),
-(2, '1', 2, 4),
-(3, '1', 1, 3),
-(11, 'valider', 2, 3),
-(12, 'valider', 2, 8),
-(13, 'En cours', 2, 3);
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -120,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `id` int NOT NULL AUTO_INCREMENT,
   `libelle` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `produit`
@@ -130,7 +118,8 @@ INSERT INTO `produit` (`id`, `libelle`) VALUES
 (1, 'word'),
 (2, 'java'),
 (3, 'powerpoint'),
-(4, 'javascript');
+(4, 'javascript'),
+(5, 'Bootstrap');
 
 --
 -- Contraintes pour les tables déchargées
