@@ -1,0 +1,20 @@
+Fiche description du projet symfony de Rodrigues-seabra 
+
+Code de symfony dans le repository github : 
+https://github.com/ThibaultRodrigues/Projet_symfony.git 
+
+Pour commencer, Dans PHPMyAdmin, Importer la base « projet_symfony » contenant les données 
+de la base pour projet. 
+
+Ensuite, mettre le chemin Symfony dans le localHost et mettre dans l’url : http://projet
+symfony/login 
+
+Enfin, Vous pouvez vous servir des codes pour vous connecter : 
+Administrateur : 
+
+Login : Thibault 
+Mot de passe : 123456 
+
+Employé : 
+Login : Jean
+Mot de passe : 123456

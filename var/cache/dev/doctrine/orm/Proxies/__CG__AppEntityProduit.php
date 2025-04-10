@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Produit extends \App\Entity\Produit implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -26,7 +26,7 @@ class Produit extends \App\Entity\Produit implements \Doctrine\ORM\Proxy\Interna
         "\0".parent::class."\0".'libelle' => [parent::class, 'libelle', null],
         'id' => [parent::class, 'id', null],
         'libelle' => [parent::class, 'libelle', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

@@ -822,3 +822,9 @@ b3bd8c,::1,GET,http://projet-symfony/afficheLesFormationsEmp,1742915079,d857e7,5
 d857e7,::1,GET,http://projet-symfony/afficheLesFormationsEmp,1742915079,,500,request
 03fb00,::1,GET,http://projet-symfony/afficheLesFormationsEmp,1742915166,e20144,500,request
 e20144,::1,GET,http://projet-symfony/afficheLesFormationsEmp,1742915166,,500,request
+fa9768,::1,GET,http://projet-symfony/,1744306666,,404,request
+22f08f,::1,GET,http://projet-symfony/login,1744306720,,200,request
+f03630,::1,POST,http://projet-symfony/login,1744306748,,200,request
+b0a2a5,::1,POST,http://projet-symfony/login,1744307292,,302,request
+c4a14d,::1,GET,http://projet-symfony/afficheLesFormationsEmp,1744307292,24d8f1,500,request
+24d8f1,::1,GET,http://projet-symfony/afficheLesFormationsEmp,1744307292,,500,request
