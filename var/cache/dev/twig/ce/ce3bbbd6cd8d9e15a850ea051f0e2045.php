@@ -57,7 +57,7 @@ class __TwigTemplate_b785d83386d4539c41adecc9d1c03480 extends Template
         body {
             margin: 0;
             padding: 0;
-            background-image: url('Images/backdrop.jpg');
+            background-image: url('images/backdrop.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -280,7 +280,7 @@ class __TwigTemplate_b785d83386d4539c41adecc9d1c03480 extends Template
         body {
             margin: 0;
             padding: 0;
-            background-image: url('Images/backdrop.jpg');
+            background-image: url('images/backdrop.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

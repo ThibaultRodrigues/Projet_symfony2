@@ -57,7 +57,7 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
         body {
             margin: 0;
             padding: 0;
-            background-image: url('Images/backdrop.jpg');
+            background-image: url('images/backdrop.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -87,7 +87,7 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
             width: 100%;
             border-collapse: collapse; /* Supprimer l'espace entre les bordures des cellules */
         }
-
+        
         th, td {
             padding: 10px;
             text-align: center;
@@ -299,7 +299,7 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
         body {
             margin: 0;
             padding: 0;
-            background-image: url('Images/backdrop.jpg');
+            background-image: url('images/backdrop.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -329,7 +329,7 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
             width: 100%;
             border-collapse: collapse; /* Supprimer l'espace entre les bordures des cellules */
         }
-
+        
         th, td {
             padding: 10px;
             text-align: center;
