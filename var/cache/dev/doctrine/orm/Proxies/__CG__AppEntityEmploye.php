@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Employe extends \App\Entity\Employe implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -34,7 +34,7 @@ class Employe extends \App\Entity\Employe implements \Doctrine\ORM\Proxy\Interna
         'nom' => [parent::class, 'nom', null],
         'prenom' => [parent::class, 'prenom', null],
         'statut' => [parent::class, 'statut', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

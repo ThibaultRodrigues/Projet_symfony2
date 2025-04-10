@@ -56,7 +56,9 @@ class FormationController extends AbstractController
             $inscription = $entityManager->getRepository(Inscription::class)->findOneBy([
                 'lemploye' => $employeId
             ]);
+            $employe = $entityManager->getRepository(Employe::class)->find($employeId);
         }
+        
 
         $message = $formation ? null : "Pas de formations";
 
