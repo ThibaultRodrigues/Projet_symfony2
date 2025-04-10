@@ -161,55 +161,93 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
         // line 106
         if ( !Twig\Extension\CoreExtension::testEmpty((isset($context["ensFormations"]) || array_key_exists("ensFormations", $context) ? $context["ensFormations"] : (function () { throw new RuntimeError('Variable "ensFormations" does not exist.', 106, $this->source); })()))) {
             // line 107
-            yield "    <table>
-        <thead>
-            <tr>
-                <th>Nom de la formation :</th>
-                <th>Statut :</th>
-            </tr>
-        </thead>
-        <tbody>
-            ";
+            yield "        <table>
+            <thead>
+                <tr>
+                    <th>Nom de la formation :</th>
+                    <th>Statut :</th>
+                </tr>
+            </thead>
+            <tbody>
+                ";
             // line 115
             $context['_parent'] = $context;
             $context['_seq'] = CoreExtension::ensureTraversable((isset($context["ensFormations"]) || array_key_exists("ensFormations", $context) ? $context["ensFormations"] : (function () { throw new RuntimeError('Variable "ensFormations" does not exist.', 115, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["inscription"]) {
                 // line 116
-                yield "                <tr>
-                    <td>";
+                yield "                    <tr>
+                        <td>";
                 // line 117
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscription"], "laFormation", [], "any", false, false, false, 117), "leproduit", [], "any", false, false, false, 117), "libelle", [], "any", false, false, false, 117), "html", null, true);
                 yield "</td>
-                    <td>";
+                        <td>";
                 // line 118
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscription"], "statut", [], "any", false, false, false, 118), "html", null, true);
                 yield "</td>
-                </tr>
-            ";
+                    </tr>
+                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['inscription'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 121
-            yield "        </tbody>
-    </table>
-    ";
-        } else {
-            // line 124
-            yield "        <p>Aucune formation validée ou refusée.</p>
+            yield "            </tbody>
+        </table>
     ";
         }
-        // line 126
+        // line 124
+        yield "
+    ";
+        // line 125
+        if ( !Twig\Extension\CoreExtension::testEmpty((isset($context["formationsEncours"]) || array_key_exists("formationsEncours", $context) ? $context["formationsEncours"] : (function () { throw new RuntimeError('Variable "formationsEncours" does not exist.', 125, $this->source); })()))) {
+            // line 126
+            yield "        <h1>Formations en cours de validation :</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom de la formation :</th>
+                    <th>Statut :</th>
+                </tr>
+            </thead>
+            <tbody>
+                ";
+            // line 135
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["formationsEncours"]) || array_key_exists("formationsEncours", $context) ? $context["formationsEncours"] : (function () { throw new RuntimeError('Variable "formationsEncours" does not exist.', 135, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["inscription"]) {
+                // line 136
+                yield "                    <tr>
+                        <td>";
+                // line 137
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscription"], "laFormation", [], "any", false, false, false, 137), "leproduit", [], "any", false, false, false, 137), "libelle", [], "any", false, false, false, 137), "html", null, true);
+                yield "</td>
+                        <td>";
+                // line 138
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscription"], "statut", [], "any", false, false, false, 138), "html", null, true);
+                yield "</td>
+                    </tr>
+                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['inscription'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 141
+            yield "            </tbody>
+        </table>
+    ";
+        }
+        // line 144
         yield "
     <div class=\"links\">
         <a href=\"";
-        // line 128
+        // line 146
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_aff_formationemp");
         yield "\">
             <button class=\"button\">Retour</button>
         </a>
     </div>
 </div>
+
 
 
 </body>
@@ -244,7 +282,7 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  207 => 128,  203 => 126,  199 => 124,  194 => 121,  185 => 118,  181 => 117,  178 => 116,  174 => 115,  164 => 107,  162 => 106,  159 => 105,  153 => 103,  151 => 102,  48 => 1,);
+        return array (  244 => 146,  240 => 144,  235 => 141,  226 => 138,  222 => 137,  219 => 136,  215 => 135,  204 => 126,  202 => 125,  199 => 124,  194 => 121,  185 => 118,  181 => 117,  178 => 116,  174 => 115,  164 => 107,  162 => 106,  159 => 105,  153 => 103,  151 => 102,  48 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -355,24 +393,42 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
     {% endif %}
 
     {% if ensFormations is not empty %}
-    <table>
-        <thead>
-            <tr>
-                <th>Nom de la formation :</th>
-                <th>Statut :</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for inscription in ensFormations %}
+        <table>
+            <thead>
                 <tr>
-                    <td>{{ inscription.laFormation.leproduit.libelle }}</td>
-                    <td>{{ inscription.statut }}</td>
+                    <th>Nom de la formation :</th>
+                    <th>Statut :</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-        <p>Aucune formation validée ou refusée.</p>
+            </thead>
+            <tbody>
+                {% for inscription in ensFormations %}
+                    <tr>
+                        <td>{{ inscription.laFormation.leproduit.libelle }}</td>
+                        <td>{{ inscription.statut }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if formationsEncours is not empty %}
+        <h1>Formations en cours de validation :</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom de la formation :</th>
+                    <th>Statut :</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inscription in formationsEncours %}
+                    <tr>
+                        <td>{{ inscription.laFormation.leproduit.libelle }}</td>
+                        <td>{{ inscription.statut }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% endif %}
 
     <div class=\"links\">
@@ -381,6 +437,7 @@ class __TwigTemplate_a2de3be3dc53216e4ee4b1f5fa6a740c extends Template
         </a>
     </div>
 </div>
+
 
 
 </body>

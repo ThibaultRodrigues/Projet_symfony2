@@ -220,36 +220,44 @@ class FormationController extends AbstractController
     }
 
     #[Route('/afficheLesFormationsvalidations/{id}', name: 'app_aff_valider')]
-public function afficheLesFormationsValiderAction(Session $session, ManagerRegistry $doctrine)
-{
-    $entityManager = $doctrine->getManager();
-    $employeId = $session->get('employeId');
+    public function afficheLesFormationsValiderAction(Session $session, ManagerRegistry $doctrine)
+    {
+        $entityManager = $doctrine->getManager();
+        $employeId = $session->get('employeId');
 
-    if (!$employeId) {
-        return $this->redirectToRoute('app_login'); // Redirige si l'utilisateur n'est pas connecté
-    }
+        if (!$employeId) {
+            return $this->redirectToRoute('app_login');
+        }
 
-    $employe = $entityManager->getRepository(Employe::class)->find($employeId);
+        $employe = $entityManager->getRepository(Employe::class)->find($employeId);
 
-    // Récupérer uniquement les inscriptions de l'employé connecté qui sont validées ou refusées
-    $inscriptions = $entityManager->getRepository(Inscription::class)
-        ->createQueryBuilder('i')
-        ->where('i.lemploye = :employe')
-        ->andWhere('i.statut = :validee OR i.statut = :refusee')
-        ->setParameter('employe', $employe)
-        ->setParameter('validee', 'validee')
-        ->setParameter('refusee', 'refusee')
-        ->getQuery()
-        ->getResult();
+        // Inscriptions validées ou refusées
+        $inscriptionsStatuts = $entityManager->getRepository(Inscription::class)
+            ->createQueryBuilder('i')
+            ->where('i.lemploye = :employe')
+            ->andWhere('i.statut = :validee OR i.statut = :refusee')
+            ->setParameter('employe', $employe)
+            ->setParameter('validee', 'validee')
+            ->setParameter('refusee', 'refusee')
+            ->getQuery()
+            ->getResult();
 
-        $message = count($inscriptions) ? null : "Aucune formation validée ou refusée pour cet employé.";
+        // Inscriptions en cours
+        $inscriptionsEncours = $entityManager->getRepository(Inscription::class)
+            ->createQueryBuilder('i')
+            ->where('i.lemploye = :employe')
+            ->andWhere('i.statut = :statut')
+            ->setParameter('employe', $employe)
+            ->setParameter('statut', 'En cours')
+            ->getQuery()
+            ->getResult();
 
         return $this->render('inscription/ListeValiderEmp.html.twig', [
-            'ensFormations' => $inscriptions,
-            'message' => $message,
-            'employe' => $employe
+            'ensFormations' => $inscriptionsStatuts,
+            'formationsEncours' => $inscriptionsEncours,
+            'employe' => $employe,
+            'message' => (count($inscriptionsStatuts) || count($inscriptionsEncours)) ? null : "Aucune formation trouvée pour cet employé."
         ]);
     }
-    
    
 }    

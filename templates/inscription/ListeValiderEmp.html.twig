@@ -104,22 +104,42 @@
     {% endif %}
 
     {% if ensFormations is not empty %}
-    <table>
-        <thead>
-            <tr>
-                <th>Nom de la formation :</th>
-                <th>Statut :</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for inscription in ensFormations %}
+        <table>
+            <thead>
                 <tr>
-                    <td>{{ inscription.laFormation.leproduit.libelle }}</td>
-                    <td>{{ inscription.statut }}</td>
+                    <th>Nom de la formation :</th>
+                    <th>Statut :</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for inscription in ensFormations %}
+                    <tr>
+                        <td>{{ inscription.laFormation.leproduit.libelle }}</td>
+                        <td>{{ inscription.statut }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if formationsEncours is not empty %}
+        <h1>Formations en cours de validation :</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom de la formation :</th>
+                    <th>Statut :</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inscription in formationsEncours %}
+                    <tr>
+                        <td>{{ inscription.laFormation.leproduit.libelle }}</td>
+                        <td>{{ inscription.statut }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% endif %}
 
     <div class="links">
@@ -128,6 +148,7 @@
         </a>
     </div>
 </div>
+
 
 
 </body>
